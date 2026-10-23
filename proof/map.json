@@ -346,13 +346,14 @@
     "member_payload": 349923
   },
   "public_role": "Original run identity plus exact supplemental finite/provider inputs. Public source remains a distinct normalized producer.",
-  "public_scope": "Local publication draft; no new campaign or public release asserted.",
+  "public_scope": "Published project package; publication metadata targets v1.0.1. No new campaign.",
   "publication_copies": [
     {
-      "path": "paper/A348425_v3.tex",
-      "origin": "paper/A348425_v3.tex",
-      "sha256": "79e61d21edf08e7bba251466dc8dfd3c97be9020b7508dc3b4e925f803f8e41f",
-      "transformation": "byte-identical copy; package-relative invocation documented"
+      "path": "paper/A348425.tex",
+      "origin": "Author-authorized publication finalization",
+      "sha256": "5321681af348983c241d2c17fa373118a80a8f46999aac11f8a9060991812458",
+      "transformation": "Final manuscript basename, verified series DOI, publication availability and PDF metadata; mathematical content unchanged",
+      "predecessor_sha256": "79e61d21edf08e7bba251466dc8dfd3c97be9020b7508dc3b4e925f803f8e41f"
     },
     {
       "path": "paper/analysis.py",
@@ -383,6 +384,13 @@
       "origin": "paper_review/r02/02_Claude_receipts.zip!recheck.py",
       "sha256": "31e21fe651f0a8811249aedaacb17bf30cebec188deb416f897afed3b6f691f0",
       "transformation": "byte-identical copy; package-relative invocation documented"
+    },
+    {
+      "path": "paper/A348425.pdf",
+      "origin": "paper/A348425.tex; three pdflatex passes, TeX Live 2023/Debian",
+      "sha256": "77322a1114124b1c6129496fc614057b259e59f6d19759fbc431d6e51841d971",
+      "bytes": 414128,
+      "transformation": "Generated matching PDF; build timestamps and trailer ID omitted; all15 rendered pages visually inspected"
     }
   ]
 }

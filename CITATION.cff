@@ -1,9 +1,9 @@
 cff-version: 1.2.0
 message: >-
-  Local publication candidate for Carlo Corti's A348425 project. Version and
-  date are provisional preparation metadata, not evidence of a public release.
   Cite the manuscript below and this software when using the results or code.
-  The Zenodo DOI is the author's intentional draft placeholder.
+  The DOI identifies the Zenodo project series; individual archived releases
+  have distinct version-specific DOIs. This package includes the manuscript
+  source, matching PDF, exact data and executable validation.
 type: software
 title: "A348425: exact enumeration and validation"
 authors:
@@ -11,12 +11,12 @@ authors:
     given-names: Carlo
     affiliation: Independent researcher
     email: carlo.corti@outlook.com
-version: "v1.0"
+version: "v1.0.1"
 date-released: "2026-10-23"
 license: MIT
 repository-code: "https://github.com/carcorti/A348425"
-url: "https://doi.org/10.5281/zenodo.xxxxxxxx"
-doi: "10.5281/zenodo.xxxxxxxx"
+url: "https://doi.org/10.5281/zenodo.23594127"
+doi: "10.5281/zenodo.23594127"
 abstract: >-
   C17 enumeration and retained-data validation for squares whose second
   arithmetic derivative is square. The canonical tables contain 9114
@@ -40,5 +40,5 @@ preferred-citation:
       email: carlo.corti@outlook.com
   title: "Squares with Square Second Arithmetic Derivative: Infinite Families and an Exact Extension of OEIS A348425"
   year: 2026
-  doi: "10.5281/zenodo.xxxxxxxx"
-  url: "https://doi.org/10.5281/zenodo.xxxxxxxx"
+  doi: "10.5281/zenodo.23594127"
+  url: "https://doi.org/10.5281/zenodo.23594127"

@@ -4,6 +4,14 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath,amssymb,amsthm,booktabs,longtable}
 \usepackage[colorlinks=true,linkcolor=black,citecolor=blue,urlcolor=blue]{hyperref}
+\hypersetup{
+ pdftitle={Squares with Square Second Arithmetic Derivative: Infinite Families and an Exact Extension of OEIS A348425},
+ pdfauthor={Carlo Corti},
+ pdfsubject={OEIS A348425: arithmetic derivative, infinite families and exact enumeration},
+ pdfkeywords={arithmetic derivative, OEIS A348425, exact enumeration}
+}
+\pdfinfoomitdate=1
+\pdftrailerid{}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
@@ -395,9 +403,9 @@ verification paths. The arithmetic, capacity, parallelism, record grammar,
 and build options are unchanged. The original executed source, Makefile,
 binary, 197-term baseline, and saved run records are preserved separately,
 with an exact transformation record. The normalized build is not credited
-with producing the historical results. These provenance materials belong
-to the locally prepared project record \cite{project}; they do not imply
-that a release has been published.
+with producing the historical results. These provenance materials are distributed with the project
+package \cite{project}; the original executed identity remains preserved
+separately from the normalized public build.
 
 The sum of saved internal elapsed counters is approximately 48 minutes
 46 seconds. It excludes part of checkpoint I/O and other startup or
@@ -757,17 +765,15 @@ mixed-root behavior without converting a finite census into a global
 classification.
 
 \section*{Data availability}
-The indexed terms, documentary witness table, normalized C source and
-build instructions, original execution materials, provenance checks,
-and Python validators currently exist in a local preparation. The
-manuscript and finite-analysis companion are separate local review
-materials. No public release of this project is established at the
-date of this draft. These materials can be supplied privately for
-review; their intended repository and archive are identified in
-\cite{project}. Those locators are prospective, and the archive DOI
-is an intentional placeholder pending the author's verified publication
-locator. Original source reviews remain internal materials. Complete
-independent re-enumeration of the final search interval is not supplied.
+The public project repository and Zenodo archive are identified in
+\cite{project}. The publication package contains the indexed terms,
+documentary witness table, normalized C source and build instructions,
+original execution materials, provenance checks, Python validators,
+monolithic manuscript source, finite-analysis companion, and matching PDF.
+The cited Zenodo DOI identifies the project series; individual archived
+releases have distinct version-specific records. Original source reviews
+remain internal materials. Complete independent re-enumeration of the
+final search interval is not supplied.
 
 \section*{AI use disclosure}
 Large language models were used as research and drafting assistants during
@@ -1023,8 +1029,8 @@ validators. \url{https://github.com/sympy/sympy/releases/tag/sympy-1.12}.
 C. Corti, \textit{Squares with Square Second Arithmetic Derivative:
 Infinite Families and an Exact Extension of OEIS A348425},
 GitHub repository and Zenodo archive, 2026.
-Prospective project locators; no public release is asserted in this draft:
+Public project repository and Zenodo archive (series DOI):
 \url{https://github.com/carcorti/A348425};
-\url{https://doi.org/10.5281/zenodo.xxxxxxxx}.
+\url{https://doi.org/10.5281/zenodo.23594127}.
 \end{thebibliography}
 \end{document}

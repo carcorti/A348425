@@ -2,11 +2,15 @@
 
 Author: Carlo Corti (Independent researcher), carlo.corti@outlook.com.
 
-**PACKAGE_DRAFT — AWAITING AUTHOR INSPECTION.** Prepared October 23, 2026.
-The intended initial version is `v1.0`; its citation date is a preparation date,
-not evidence of publication. The intended repository is
-https://github.com/carcorti/A348425 and the designated draft archive sentinel is
-https://doi.org/10.5281/zenodo.xxxxxxxx. No public release is asserted here.
+Package version **v1.0.1**, October 23, 2026.
+Repository: https://github.com/carcorti/A348425.
+Zenodo series DOI: https://doi.org/10.5281/zenodo.23594127.
+This DOI identifies the collection of archived versions. The initial `v1.0`
+deposit has the distinct version DOI https://doi.org/10.5281/zenodo.23594128;
+it is not the record identifier of `v1.0.1`.
+
+The manuscript is available as [TeX](paper/A348425.tex) and
+[PDF](paper/A348425.pdf).
 
 ## Mathematical result and data
 
@@ -45,14 +49,14 @@ The manuscript proves the reduced-core/rate square criterion and disjoint
 infinite scale families. Its 35 observed positive-rate classes have 130 members;
 four classes were present in earlier notes and 31 were derived from the finite
 consolidated data. These counts are not a global classification or density law.
-The current monolithic source is [paper/A348425_v3.tex](paper/A348425_v3.tex).
+The current monolithic source is [paper/A348425.tex](paper/A348425.tex).
 
 ## Essential inventory
 
 | Path | Purpose |
 |---|---|
 | `src/a348425.c`, `src/Makefile` | Stable normalized C17 producer and exact build recipe |
-| `paper/A348425_v3.tex` | Current English manuscript, inline bibliography, no external assets |
+| `paper/A348425.tex`, `paper/A348425.pdf` | Matching English manuscript source and PDF; inline bibliography, no external assets |
 | `paper/analysis.py` | Original finite analysis/certificates; accepts either canonical data format |
 | `data/b348425.txt`, `data/a348425.txt` | Canonical indexed data and documentary witnesses |
 | `proof/run.tgz`, `proof/map.json` | Actual historical source, Makefile, executable, verifier, baseline197 and seven final-run files; exact member identities |
@@ -65,7 +69,7 @@ The current monolithic source is [paper/A348425_v3.tex](paper/A348425_v3.tex).
 | `check/a348425_afile.py` | Direct documentary composition and indexed a/b correspondence |
 | `check/native.py`, `check/verify.py` | Shared C helper fixtures and their separately computed expected coordinates |
 | `check/recover.py`, `check/oper.py` | Retained development recovery/crash/I/O test methods; not run by the bounded driver |
-| `CITATION.cff`, `LICENSE`, `NOTICE.md`, `deps.txt`, `checks.sha256` | Citation, existing project MIT license, upstream attribution, pinned Python dependency, exact payload inventory |
+| `CITATION.cff`, `LICENSE`, `NOTICE.md`, `.gitignore`, `deps.txt`, `checks.sha256` | Citation, existing MIT license, upstream attribution, generated-file exclusions, pinned dependency, exact payload inventory |
 
 No private review prose, chat prompts, obsolete manuscripts, caches, auxiliary
 TeX files, benchmark debris or duplicate public executable is included. Research
@@ -162,16 +166,26 @@ the payload:
 python3 -I -B paper/analysis.py data/a348425.txt > /tmp/a348425-stats.json
 ```
 
-For TeX source checking without creating a PDF:
+To rebuild the PDF from this directory, keep auxiliary output outside the
+publication payload:
 
 ```sh
 mkdir -p /tmp/a348425-tex
-pdflatex -interaction=nonstopmode -halt-on-error -draftmode -output-directory=/tmp/a348425-tex paper/A348425_v3.tex
-pdflatex -interaction=nonstopmode -halt-on-error -draftmode -output-directory=/tmp/a348425-tex paper/A348425_v3.tex
+pdflatex -interaction=nonstopmode -halt-on-error -output-directory=/tmp/a348425-tex paper/A348425.tex
+pdflatex -interaction=nonstopmode -halt-on-error -output-directory=/tmp/a348425-tex paper/A348425.tex
+pdflatex -interaction=nonstopmode -halt-on-error -output-directory=/tmp/a348425-tex paper/A348425.tex
 ```
 
-No external TeX assets or BibTeX/Biber are needed. Visual inspection of a future
-PDF is a separate task.
+The rebuilt file is `/tmp/a348425-tex/A348425.pdf`. No external TeX assets
+or BibTeX/Biber are needed. The distributed PDF was built with pdfTeX from
+TeX Live 2023; the final log has no errors or warnings, and every page was
+visually inspected. Build timestamps and the PDF trailer ID are omitted to
+make the bytes reproducible with that toolchain. Other TeX/font versions may
+change PDF bytes without changing the mathematics.
+
+The supplied `.gitignore` excludes generated binaries, TeX auxiliary files
+and Python caches; it keeps the published TeX and PDF trackable. The package
+validator still rejects unexpected files even when Git would ignore them.
 
 ## Historical identity and compressed inputs
 
@@ -211,7 +225,13 @@ and credits in [NOTICE.md](NOTICE.md); the project license does not relicense
 those sources. The original helper sources retain their provenance comments.
 
 Use [CITATION.cff](CITATION.cff) for the software and preferred manuscript
-citation. Version/date and repository/archive locators are provisional until
-publication. The exact Zenodo placeholder is intentional and must stay until
-Carlo supplies the verified official locator. This local preparation is not a
-PRE-UPLOAD PASS or a verification of remotely distributed artifacts.
+citation. Its DOI is the author-designated Zenodo series DOI, not an immutable
+version DOI. For exact release provenance use the corresponding versioned
+Zenodo record or the GitHub tag, such as `v1.0.1`. The release's source archive
+contains the manuscript PDF as well as all declared validation inputs.
+
+The checksum manifest covers every delivered file, including `.gitignore`
+and `paper/A348425.pdf`, except the manifest itself. Git provider metadata is
+outside that inventory. A local pre-upload check does not establish that a
+future provider archive has been verified; distributed release verification
+must use fresh actual GitHub and Zenodo downloads.

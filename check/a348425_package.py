@@ -203,7 +203,7 @@ def main():
              {k: v for k, v in stats[1].items() if k != 'input_sha256'},
              'both canonical-format finite analyses agree')
         trial = python(ROOT/'check/recheck.py', ROOT/'data/b348425.txt',
-                       ROOT/'data/a348425.txt', ROOT/'paper/A348425_v3.tex', extra)
+                       ROOT/'data/a348425.txt', ROOT/'paper/A348425.tex', extra)
         checked = json.loads(trial['stdout'])
         need(checked['positives_rechecked'] == 9114 and checked['afile_equals_bfile']
              and checked['classes'] == checked['longtable_rows'] == 35
