@@ -1,0 +1,1030 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,longtable}
+\usepackage[colorlinks=true,linkcolor=black,citecolor=blue,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\NN}{\mathbb Z_{\geq0}}
+\newcommand{\DD}{D^{2}}
+\title{Squares with Square Second Arithmetic Derivative:\\
+Infinite Families and an Exact Extension of OEIS A348425}
+\author{Carlo Corti\\Independent researcher\\
+\href{mailto:carlo.corti@outlook.com}{\texttt{carlo.corti@outlook.com}}}
+\date{October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+OEIS A348425 consists of the nonnegative squares whose second arithmetic
+derivative is a square. We consolidate 9,114 consecutive terms, compared
+with the 33-term public snapshot acquired on October 22, 2026. The final
+campaign contributes 8,917 terms and completes the input-root interval
+through $10^{10}$. It follows a 197-term prefix whose entire root interval
+has been separately checked. Its arithmetic
+kernel uses $D^{2}(r^{2})=rD(r)+2D(r)^{2}+2rD(D(r))$, reducing the irregular
+factorization operand to $D(r)$. Complete coverage rests on this exhaustive
+producer and its sealed records; separate arithmetic checks verify all
+reported positive witnesses and bounded windows. No independent full
+re-enumeration of the final campaign interval is claimed. We prove a
+necessary and sufficient square criterion for each fixed reduced core and
+integer-rate multiplier class, using the historical classification of
+$D(t)=\lambda t$. Four families established in earlier project notes are
+recovered, and 31 further certified classes are extracted from the existing
+data. These constructions give unconditional infinitude without assumptions
+on primes represented by quadratic polynomials. An adjacent witness already
+present in an acquired prime table sharpens the next-term bound to
+$10^{20}<a(9115)\leq100196144067026155201$; it does not determine that term.
+\end{abstract}
+\noindent\textit{2020 Mathematics Subject Classification:} Primary 11A25;
+Secondary 11A41, 11Y55.\\
+\textit{Key words and phrases:} arithmetic derivative, integer sequences,
+perfect squares, integer-rate multipliers, exact enumeration.
+
+\section{Introduction}\label{sec:intro}
+The arithmetic derivative is determined by $D(p)=1$ for every prime $p$,
+$D(0)=D(1)=0$, and the product rule
+\begin{equation}\label{eq:leibniz}
+ D(uv)=uD(v)+vD(u).
+\end{equation}
+Its factorization formula and elementary bounds are classical
+\cite{barbeau,ufn}; a recent exposition is given by Tossavainen et al.\
+\cite{survey}. Throughout this paper, $D^{2}(n)=D(D(n))$ denotes composition,
+whereas $D(n)^{2}$ denotes an ordinary square. The function $D$ is not additive.
+
+Marius A. Burtea introduced OEIS A348425 in October 2021 \cite{oeis}:
+\begin{equation}\label{eq:set}
+ \mathcal A=\{r^{2}:r\in\NN,\ D^{2}(r^{2})\text{ is a square in }\NN\}.
+\end{equation}
+We write $a(1),a(2),\ldots$ for its increasing enumeration. Thus
+$a(1)=0$, $a(2)=1$, $a(3)=4$, and $a(4)=49$ (offset $1$); for example,
+$D(49)=14$ and $D(14)=9$. The input root $r$, the sequence index $i$, and
+the second-derivative root $R=\sqrt{D^{2}(r^{2})}$ are different quantities.
+
+The snapshot acquired on October 22, 2026 contains 33 indexed terms.
+Its last value is $31618129=5623^{2}$. It also contains root-enumeration programs by
+Amiram Eldar and Michel Marcus and three prime-power constructions
+\cite{oeis}. We retain that precise baseline when reporting an extension;
+the final campaign alone did not produce all 9,081 terms beyond it.
+
+There are two complementary questions. Exact indexing requires checking
+every intervening input root. A structural family supplies infinitely many
+members, but cannot establish their sequence indices without that coverage.
+The first question is addressed by the completed enumeration and its
+validation. For the second, a product-rule criterion transfers the historical
+integer-rate multipliers of Kovi\v{c} \cite[Proposition 2]{kovic} to square
+second derivatives. The corresponding reduced-core decomposition is already
+present in Ufnarovski and \AA hlander \cite[Section 8]{ufn}.
+
+The contributions are an exact local extension to 9,114 terms; proofs and
+disjointness statements for scale families; a reproducible finite analysis
+of prime powers and reduced cores; and a tighter, unindexed witness bound.
+The four initially supplied scale families predate the final campaign:
+their mechanism was developed in project notes on October 5, 2026, with
+the fourth seed retained in subsequent notes. The
+31 additional classes below are identified by analyzing the consolidated
+data. We make no claim of absolute bibliographic priority for these
+specializations. In particular, the book of Balzarotti and Lava
+\cite{book} has not been consulted in full.
+
+\section{Exact identities and scale families}\label{sec:math}
+For $n\geq2$ with prime factorization $n=\prod_p p^{e_p}$, the defining
+rules give
+\begin{equation}\label{eq:factor}
+ D(n)=\sum_{p\mid n}e_p\frac{n}{p}.
+\end{equation}
+We use the empty product convention for $1$ and treat $0$ separately.
+
+\begin{proposition}[Root reduction]\label{prop:root}
+For $r\in\NN$, put $d=D(r)$ and $e=D(d)$. Then
+\begin{equation}\label{eq:root}
+ D(r^{2})=2rd,\qquad \DD(r^{2})=rd+2d^{2}+2re.
+\end{equation}
+\end{proposition}
+\begin{proof}
+The first identity follows from \eqref{eq:leibniz}. For the second,
+differentiate the product $2(rd)$, using $D(2)=1$:
+\[
+ D(2rd)=rd+2D(rd)=rd+2\bigl(d^{2}+rD(d)\bigr).
+\]
+This uses the product rule twice; it does not differentiate a sum
+term by term. Both identities hold also for $r=0,1$.
+\end{proof}
+
+For prime $r$, the result is $\DD(r^{2})=r+2$. Prime input roots are
+therefore essential, and may not be discarded. More generally, the
+identity replaces factorization of $2rD(r)$ by factorization of $D(r)$.
+
+\begin{lemma}[Integer-rate multipliers]\label{lem:rate}
+Let $\lambda\in\NN$. The positive integer solutions of $D(t)=\lambda t$
+are exactly
+\begin{equation}\label{eq:mult}
+ t=\prod_p p^{p c_p},\qquad c_p\in\NN,\qquad \sum_p c_p=\lambda,
+\end{equation}
+where the support is finite. In particular, $\lambda=0$ forces $t=1$.
+\end{lemma}
+\begin{proof}
+This is the integer specialization of the classical logarithmic
+decomposition \cite{ufn} and Kovi\v{c}'s Proposition 2 \cite{kovic}.
+The case $t=1$ has $D(t)=0$ and $\lambda=0$, and satisfies the
+empty-product convention. For $t>1$, write $t=\prod_{p\mid t}p^{e_p}$. Then
+$\sum_{p\mid t}e_p/p=\lambda$. Multiply by $P=\prod_{p\mid t}p$ and reduce
+modulo a fixed prime $p\mid t$. All terms except $e_pP/p$ vanish, so
+$p\mid e_p$. Setting $e_p=pc_p$ proves necessity; substituting in
+\eqref{eq:factor} proves sufficiency. For $\lambda=0$, all $c_p=0$, so $t=1$.
+\end{proof}
+
+Equivalently, $t$ is a product of $\lambda$ factors $p^{p}$, with primes
+allowed to repeat. There is no coprimality restriction between these
+primes and any separately chosen seed.
+
+\begin{theorem}[Square criterion in a scale class]\label{thm:scale}
+Let $m,t\geq1$ and $\lambda\in\NN$ satisfy $D(t)=\lambda t$. Define
+\begin{equation}\label{eq:coefficient}
+ b=D(m)+\lambda m,\qquad
+ C(m,\lambda)=2D(mb)+(4\lambda+1)mb.
+\end{equation}
+Then
+\begin{equation}\label{eq:scale}
+ \DD((mt)^{2})=t^{2}C(m,\lambda).
+\end{equation}
+Consequently $(mt)^{2}\in\mathcal A$ if and only if $C(m,\lambda)$
+is a square. If $C(m,\lambda)=S^{2}$, its second-derivative root is $St$.
+\end{theorem}
+\begin{proof}
+The product rule gives $D(mt)=tb$, hence $D((mt)^{2})=2t^{2}mb$.
+Moreover, $D(t^{2})=2\lambda t^{2}$ and
+$D(2t^{2})=(4\lambda+1)t^{2}$. Differentiating the product
+$(2t^{2})(mb)$ proves \eqref{eq:scale}. The coefficient is a nonnegative
+integer. Multiplication by $t^{2}$ preserves every prime-exponent parity,
+so it is a square exactly when the product is. The only zero case is
+$m=1$, $\lambda=0$, hence $t=1$, giving the member $1$.
+\end{proof}
+
+\begin{definition}\label{def:core}
+For $r\geq1$, write each prime exponent uniquely as
+$e_p=pc_p+b_p$, with $0\leq b_p<p$, and set
+\begin{equation}\label{eq:canonical}
+ m=\prod_p p^{b_p},\qquad t=\prod_p p^{pc_p},\qquad
+ \lambda=\sum_p c_p.
+\end{equation}
+We call $m$ the reduced core and $\lambda$ the canonical rate of $r$.
+A positive integer $m$ is \emph{reduced} when $\nu_p(m)<p$ for every
+prime $p$, where $\nu_p$ is the prime exponent.
+\end{definition}
+
+This is the small/large-parts decomposition of \cite[Section 8]{ufn},
+expressed in input-root
+notation. It is unique, $r=mt$, and Lemma~\ref{lem:rate} applies to $t$.
+Thus Theorem~\ref{thm:scale} is an exact criterion for each core and rate,
+but does not solve all possible conditions $C(m,\lambda)=S^{2}$.
+
+\begin{corollary}\label{cor:infinite}
+If $m$ is reduced, $\lambda\geq1$, and $C(m,\lambda)$ is a square, then
+\[
+ \left\{\left(m\prod_{j=1}^{\lambda}p_j^{p_j}\right)^{2}:
+       p_1,\ldots,p_\lambda\text{ prime}\right\}\subseteq\mathcal A
+\]
+is infinite. Families from distinct reduced-core/rate pairs are disjoint.
+\end{corollary}
+\begin{proof}
+Membership follows from the preceding theorem and lemma. Fix all but one
+prime parameter, and let the remaining prime increase; the roots are
+unbounded. For disjointness, multiplication adds multiples of $p$ to
+the exponent of each prime $p$, even when $p$ divides $m$. Since
+$0\leq\nu_p(m)<p$, adding these multiples produces no carry from
+the reduced exponent into the quotient. The residues
+and the total quotient sum in \eqref{eq:canonical} recover $m$ and
+$\lambda$ uniquely. A root cannot belong to two distinct pairs.
+\end{proof}
+
+\subsection{Four explicit scale families}\label{sec:four}
+Table~\ref{tab:four} gives exact certificates for the four seeds from
+the earlier notes.
+Every seed is reduced: they are $47$, $5^{3}$, $5^{3}7$, and $23^{2}$.
+They therefore yield four disjoint infinite families:
+\begin{align*}
+ (47p^{p})^{2},&\quad R=148p^{p},&
+ (125p^{p})^{2},&\quad R=500p^{p},\\
+ (875p^{p})^{2},&\quad R=3125p^{p},&
+ (529p^{p}q^{q})^{2},&\quad R=2852p^{p}q^{q}.
+\end{align*}
+Here $p,q$ are arbitrary primes, including $p=q$, and may divide the
+seed. No conjecture about polynomial primes is involved.
+
+\begin{table}[htbp]
+\centering
+\caption{Exact certificates for the inherited families. The notation is
+that of \eqref{eq:coefficient}; $C=S^{2}$.}\label{tab:four}
+\begin{tabular}{rrrrrr}
+\toprule
+$m$&$\lambda$&$b$&$D(mb)$&$C$&$S$\\
+\midrule
+47&1&48&5312&21904&148\\
+125&1&200&62500&250000&500\\
+875&1&1525&1546875&9765625&3125\\
+529&2&1104&1438880&8133904&2852\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Formulations using the square seed $m^{2}$ describe the same families:
+$D(t^{2})=2\lambda t^{2}$, so the corresponding multiplier rate for
+square inputs is $2\lambda$, rather than $\lambda$.
+
+\subsection{Prime powers and the parameter convention}\label{sec:powers}
+\begin{proposition}\label{prop:power}
+For a prime $p$ and $k\geq1$,
+\begin{equation}\label{eq:power}
+ \DD(p^{2k})=p^{2k-2}\bigl[pD(2k)+2k(2k-1)\bigr].
+\end{equation}
+Thus $p^{2k}\in\mathcal A$ exactly when the bracket is a square.
+\end{proposition}
+\begin{proof}
+Differentiate $D(p^{2k})=(2k)p^{2k-1}$ as a product. The result is
+$D(2k)p^{2k-1}+(2k)(2k-1)p^{2k-2}$. The remaining factor
+$p^{2k-2}$ is a square. This calculation does not assume $p\nmid2k$.
+\end{proof}
+
+For $k=1,2,3$, the respective brackets are
+\begin{equation}\label{eq:three}
+ p+2,\qquad 4(p+3),\qquad 5(p+6).
+\end{equation}
+These recover the three constructions in A348425 \cite{oeis}:
+$p=s^{2}-2$, $p=s^{2}-3$, and $p=5s^{2}-6$, respectively, subject
+to primality of $p$. They do not prove that the required prime sets
+are infinite. In particular the third condition follows from
+$5(p+6)=u^{2}$: $5\mid u$, so $u=5s$ and $p=5s^{2}-6$.
+
+The parameter conventions of the related entries differ
+\cite{near2,near3,near5}: A028871 lists the primes $p=s^{2}-2$;
+A028873 lists the parameters $s$ for which $s^{2}-3$ is prime;
+A201787 lists the primes $p=5s^{2}-6$, not their parameters.
+The third comment in the checked A348425 snapshot uses an A201787 term
+as if it were $s$. For its second term, $599$, the literal assertion
+fails because
+\[
+ 5\cdot599^{2}-6=1793999=19\cdot94421.
+\]
+The corrected mathematical statement is: if the prime $p\in\mathrm{A201787}$
+has $p=5s^{2}-6$, then $\DD(p^{6})=(5p^{2}s)^{2}$. The live text
+checked on October 22, 2026 retains that parameter error.
+
+\section{Enumeration, arithmetic bounds, and completion}\label{sec:algorithm}
+Since $r\mapsto r^{2}$ is strictly increasing on $\NN$, exhaustive
+root enumeration preserves the order in \eqref{eq:set}. The producer
+first computes $D(r)$ in blocks, then applies Proposition~\ref{prop:root}
+and an exact integer-square test to every root. No family restriction,
+primality restriction on $r$, or empirical exclusion is used.
+
+\subsection{Sieve and exact arithmetic}
+For a block $[L,H]$, initialize a residual equal to each root and a zero
+derivative accumulator. For each prime $p\leq\sqrt H$, strip $p^{e}$
+from the residual and add $e(r/p)$ using the original $r$. Any final
+residual greater than $1$ is prime, since a composite residual would
+have a prime factor at most $\sqrt H$ already processed. The residual
+prime $q$ has exponent one: $q>\sqrt H$ implies $q^{2}>H$. Its contribution
+is $r$ divided by that residual. This proves that the sieve gives
+$d=D(r)$ exactly. The cases $r=0,1$ are handled explicitly.
+
+The irregular operand $d$ is factored using small-prime division,
+deterministic word primality based on the Miller--Rabin test
+\cite{miller,rabin}, and a fixed-seed rho accelerator of
+Pollard type \cite{pollard}. This uses Floyd cycle detection,
+constants $c=1,\ldots,32$, and at most 100,000 steps per constant.
+The primality bases are
+\[
+ 2,\ 325,\ 9375,\ 28178,\ 450775,\ 9780504,\ 1795265022,
+\]
+whose coverage for integers below $2^{64}$ is the Sinclair record
+listed in \cite{mr}. The Feitsma--Galway tables \cite{feitsma} supply
+exhaustive base-2 pseudoprime data for this word range; these large
+tables were not independently regenerated here. Bases are reduced
+modulo the candidate and a zero residue is skipped. A finite check
+of all composite divisors of these bases confirms rejection by the
+remaining tests, including $14089=73\cdot193$, which survives the
+initial small-prime screen. Every factor leaf is checked for primality, and
+the product of the prime powers must reproduce the operand exactly.
+Exhausting the bounded rho attempts invokes complete odd trial division;
+it never turns a factorization failure into a negative result. This
+fallback ensures exactness, without a uniform practical running-time
+claim for adversarial operands.
+
+The sieve supplies $d$; only $d$ needs irregular factorization for
+each root. The producer does not factor $e=D(d)$. After obtaining $e$,
+it computes the two expressions
+in \eqref{eq:root}. The residue condition
+$D^{2}(r^{2})\bmod16\in\{0,1,4,9\}$ is necessary only. A floating
+square-root estimate is corrected with integer products until
+$q^{2}\leq y<(q+1)^{2}$, where $y=D^{2}(r^{2})$; acceptance requires
+$q^{2}=y$. The decision is therefore integral, rather than a
+floating-point test.
+
+\begin{lemma}[Width bounds]\label{lem:width}
+For $U\geq2$, let $F(U)=\lfloor U\lfloor\log_2U\rfloor/2\rfloor$,
+with $F(0)=F(1)=0$. If $0\leq v\leq U$, then $D(v)\leq F(U)$.
+For $r\leq B$, set $A=F(B)$ and $E=F(A)$. Then
+\begin{equation}\label{eq:width}
+ r^{2}\leq B^{2},\quad d\leq A,\quad e\leq E,\quad
+ D(r^{2})\leq2BA,\quad
+ \DD(r^{2})\leq BA+2A^{2}+2BE.
+\end{equation}
+\end{lemma}
+\begin{proof}
+For $v\geq2$, \eqref{eq:factor} gives $D(v)\leq v\Omega(v)/2$, where
+$\Omega(v)=\sum_pe_p$. Since $2^{\Omega(v)}\leq v$,
+$\Omega(v)\leq\lfloor\log_2v\rfloor$. The integer bound follows,
+because $v\lfloor\log_2v\rfloor$ is nondecreasing for integer $v\geq2$;
+the cases $v=0,1$ follow separately. Applying it first to $r$ and then
+to $d$, and using \eqref{eq:root}, proves \eqref{eq:width}.
+This is the integer form of the classical upper bound \cite{barbeau}.
+\end{proof}
+
+The supported source capacity is $B=10^{12}$. Here
+\[
+ A=19500000000000,\qquad E=429000000000000,
+\]
+\[
+ B^{2}=10^{24},\quad 2BA=3.9\cdot10^{25},\quad
+ BA+2A^{2}+2BE=1.638\cdot10^{27}<2^{91}.
+\]
+Thus roots and factorization operands fit unsigned 64-bit words, while
+coordinates and their products use unsigned 128-bit arithmetic, with
+promotion before multiplication. The second-derivative root is at most
+$40472212689696$. These are conservative capacity bounds, not
+measurements or coverage through $10^{12}$.
+
+\subsection{Ordered completion and the executed identity}\label{sec:provenance}
+The completed campaign used Linux Mint 22.3 on x86-64 LP64,
+GCC 13.3.0, OpenMP with 16 workers, and blocks of 65,536 roots.
+The processor was an AMD Ryzen 9 7940HS (8 cores, 16 hardware threads),
+with 64 GB DDR5 installed RAM. The runtime libraries were GNU
+libgomp (package 14.2.0-4ubuntu2\textasciitilde24.04.1) and OpenSSL
+3.0.13; the Python checks used Python 3.12.3 and SymPy 1.12.
+Appendix~\ref{app:records} gives the exact build options and record grammar. Within a block each worker writes its own result
+flag. Positive rows are replayed in increasing root order after the
+join. A block advances the committed frontier only when all its roots
+finish; an interrupted or failed block cannot certify negatives.
+The two sealed segments in Table~\ref{tab:segments} are contiguous.
+
+\begin{table}[htbp]
+\centering
+\caption{Completed final-campaign segments, with inclusive input roots.
+The hit counts sum to 8,917.}\label{tab:segments}
+\begin{tabular}{lrrr}
+\toprule
+Segment&First root&Last root&Hits\\
+\midrule
+0&1000001&5454971456&6792\\
+1&5454971457&10000000000&2125\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The author executed the campaign with the historical source
+\texttt{a348425\_v2.c}. The public-facing copy is
+\texttt{a348425.c}. Its sole C change is the neighboring-source filename
+used for identity checking; the Makefile changes that filename and
+verification paths. The arithmetic, capacity, parallelism, record grammar,
+and build options are unchanged. The original executed source, Makefile,
+binary, 197-term baseline, and saved run records are preserved separately,
+with an exact transformation record. The normalized build is not credited
+with producing the historical results. These provenance materials belong
+to the locally prepared project record \cite{project}; they do not imply
+that a release has been published.
+
+The sum of saved internal elapsed counters is approximately 48 minutes
+46 seconds. It excludes part of checkpoint I/O and other startup or
+closure costs and is not the complete command wall time. A campaign
+peak-RSS measurement is unavailable; short calibration measurements
+are not substituted for it. Rho-fallback counts were printed during
+execution but are not retained in the saved campaign records, so
+no observed fallback frequency is reported. No unmeasured performance
+comparison is made.
+
+\section{Indexed extension and its validation}\label{sec:results}
+\begin{theorem}[Computational result]\label{thm:computed}
+The separately checked prefix and the completed exhaustive producer
+give 9,114 consecutive terms of $\mathcal A$ through $r=10^{10}$.
+Coverage of the final interval $1000001\leq r\leq10^{10}$ rests on
+this producer and its preserved completion records, rather than an
+independent re-enumeration of that full interval.
+In particular,
+\begin{align*}
+ a(36)&=54582544=7388^{2},\\
+ a(198)&=1012050084049=1006007^{2},\\
+ a(9114)&=99948010099131627889=9997400167^{2}.
+\end{align*}
+No further member has input root at most $10^{10}$. The first unresolved
+index is 9115.
+\end{theorem}
+\begin{proof}[Computational evidence and coverage argument]
+The chronology is given in Table~\ref{tab:stages}. The original extension
+admitted the 33-term public baseline. During manuscript revision on
+October 23, 2026, complete trial division applied directly to $r^{2}$
+and $D(r^{2})$ for every $0\leq r\leq6500$ found exactly the 35
+listed members, including exactly those 33 through $r=5623$. A separately
+supplied C implementation agreed on this full interval; it factors
+$r$ and $D(r)$ and evaluates $D(2rD(r))$ from the merged prime multiset.
+This closes the earlier admitted-prefix dependency, without attributing
+the later check to the original campaign. Before that revision, an exact replay of
+877 roots, $5624\leq r\leq6500$, found the two additional roots
+$5625$ and $5927$. Direct trial division and a separate SymPy
+computation agreed on this whole interval. A further complete finite
+check of 993,500 roots, $6501\leq r\leq10^{6}$, gave 162 more members,
+agreeing with a separate completed producer run on that finite
+interval and yielding a 197-term prefix. This check
+used a separately supplied Python implementation: it factors $r$
+and $D(r)$ by trial division and forms the prime multiset of
+$2rD(r)$, rather than evaluating the second formula in \eqref{eq:root}.
+The delivered implementation and its local execution record are retained.
+
+The final producer covers exactly $10^{10}-10^{6}=9999000000$ further
+roots in the two segments of Table~\ref{tab:segments}. Its committed
+cursors reach the inclusive upper endpoints, the segments join without
+gaps or overlap, and the sealed hit lists agree with their ordered
+aggregate. They contain $6792+2125=8917$ positives. The preserved prefix
+and these ordered hits give $197+8917=9114$ indexed rows. The root
+reduction, exact tests, and complete-block commitment establish how the
+producer accounts for negatives. In particular, the last positive root
+is not used as a proxy for the completed frontier.
+\end{proof}
+
+\begin{table}[htbp]
+\centering
+\caption{Distinct stages of the local extension, relative to the acquired
+public baseline. Its completeness was separately checked on October 23,
+2026; this later verification adds no terms. The extension beyond the
+snapshot is $9114-33=9081$ terms.}\label{tab:stages}
+\begin{tabular}{lrrr}
+\toprule
+Stage&Root frontier&Added terms&Total terms\\
+\midrule
+Public snapshot&5623&---&33\\
+Exact replay&6500&2&35\\
+Complete finite continuation&1000000&162&197\\
+Final campaign&10000000000&8917&9114\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{What the separate checks establish}\label{sec:validation}
+All 8,917 final-campaign positives were recomputed in Python with
+SymPy 1.12 \cite{sympy}, factoring $n=r^{2}$ and $D(n)$ directly.
+Factor products and prime-leaf domains were checked. A documentary
+table with columns
+\[
+ (i,\ r,\ n=a(i),\ D(n),\ \DD(n),\ R)
+\]
+was then checked for every one of its 9,114 rows: 18,228 derivative
+identities and 18,228 square identities, together with equality to the
+indexed b-file. This table records witnesses for the contiguous terms;
+it is not a sparse extension across a missing index.
+
+Four complete windows were also checked with separate arithmetic:
+\begin{gather*}
+ [1000001,1001419],\quad[100000001,100001000],\\
+ [1000000001,1000001000],\quad[9999999001,10000000000].
+\end{gather*}
+They contain $1419+1000+1000+1000=4419$ distinct roots, all negative,
+in agreement with the run. Positive-path agreement is supplied by
+the all-positive check. During manuscript revision, the separately
+supplied C checker also reproduced complete 129-root windows
+$[1005943,1006071]$ and $[9997400103,9997400231]$, containing
+respectively the first and last campaign hits. A third 129-root window
+$[5454971392,5454971520]$ straddles the segment join and is negative.
+These bounded checks supplement, and do not extend, campaign coverage.
+
+These checks have complementary limitations. Recomputing a reported
+positive does not detect an omitted positive. Seals, identity checks,
+aggregate equality and completed cursors establish integrity and the
+producer's recorded completion, rather than a second independent
+enumeration of all 9,999,000,000 final-campaign inputs. The 33-term
+baseline dependency was closed by the complete check described above.
+The separately
+implemented finite checker shares the mathematical definition, and
+implementations supplied by one LLM family and reviews from that
+family have correlated provenance. Execution claims in external code reviews that
+lack delivered raw harnesses or logs are not counted as local reruns.
+
+Source review before execution concerns software correctness and
+does not by itself verify the structural theorems. During manuscript
+preparation, the current data were
+again checked by the finite-analysis companion, and the archived
+original run was verified without advancing it. The provenance
+checker also regenerated all 9,114 indexed pairs from the original
+197-term baseline and the sealed final hit list.
+
+\subsection{The first unresolved term}\label{sec:bound}
+The families already show that $\mathcal A$ is infinite, so the next
+term exists. The completed negative tail gives $a(9115)>10^{20}$.
+The earlier family witness
+\[
+ r=529\cdot7^{7}\cdot3^{3}=11762664669
+\]
+has square $138360280115340879561$ and second-derivative root
+$63416105172$, giving a valid unindexed upper bound.
+
+Inspection of the acquired A028871 table \cite{near2} during manuscript
+preparation on October 22, 2026 identified a tighter witness, also
+present in the earlier restricted-family list:
+\[
+ p=10009802399=100049^{2}-2.
+\]
+Complete trial division through $\lfloor\sqrt p\rfloor=100048$
+confirms primality. Proposition~\ref{prop:root} then gives
+\[
+ D(p^{2})=20019604798,\qquad \DD(p^{2})=10009802401=100049^{2}.
+\]
+Consequently
+\begin{equation}\label{eq:bound}
+ 10^{20}<a(9115)\leq100196144067026155201.
+\end{equation}
+The provider index of $p$ in A028871 is 8889; it is not an A348425
+index. No arbitrary-root interval beyond $10^{10}$ was enumerated
+to obtain this improvement. In particular, the witness is not asserted
+to equal $a(9115)$.
+
+\section{Finite structure of the consolidated data}\label{sec:finite}
+The analysis in this section examines only the existing 9,114 positive
+rows. Its companion program checks direct composition, factors each
+input root, constructs \eqref{eq:canonical}, and verifies the exact
+coefficient and root in Theorem~\ref{thm:scale}. It searches neither
+additional roots nor a larger seed domain.
+
+\subsection{Prime powers and a disjoint classification}
+Apart from $r=0,1$, there are 8,888 prime roots, 52 higher prime-power
+roots, and 172 roots with at least two distinct prime factors.
+The prime-power exponents in $r=p^{k}$ are given in
+Table~\ref{tab:exponents}.
+\begin{table}[htbp]
+\centering
+\caption{Prime-power exponents among input roots $2\leq r\leq10^{10}$
+of members of $\mathcal A$.}
+\label{tab:exponents}
+\begin{tabular}{rrrrrr}
+\toprule
+$k$&1&2&3&8&20\\
+\midrule
+Count&8888&45&4&2&1\\
+\bottomrule
+\end{tabular}
+\end{table}
+The exceptional higher exponents are $5^{8}$, $17^{8}$ and $3^{20}$.
+They satisfy Proposition~\ref{prop:power}; $5^{8}$ belongs to the
+inherited core $125$, rate $1$ family, and $3^{20}$ to the core $9$,
+rate $6$ family below. Thus the three small-exponent constructions
+do not exhaust the prime-power part.
+
+As a separate provider check, transforming all acquired terms of
+A028871, A028873 and A201787 within the completed root bound gives
+respectively 8,888, 45 and 4 members, all present in the consolidated
+table. These are restricted-domain checks, not coverage for mixed roots.
+The following disjoint partition classifies membership in the
+displayed constructions:
+\begin{equation}\label{eq:partition}
+ 9114=2+8937+19+111+45.
+\end{equation}
+The summands count, in order, $r=0,1$; the $k=1,2,3$ prime-power
+constructions; the four inherited scale families; the other observed
+positive-rate classes; and the remaining rate-zero members. Here
+$8937=8888+45+4$. The inherited classes contain respectively
+4, 4, 4 and 7 terms. The classification assigns $r=0,1$ first, then the $k=1,2,3$
+prime-power constructions, then the positive-rate classes, and finally
+the remaining roots. No summand in \eqref{eq:partition} counts a
+term twice. The last 45 terms are not unexplained by the defining
+predicate: they are outside this particular collection of families.
+
+\subsection{Canonical rates and additional certified families}
+Among the 9,112 roots at least $2$, the rate distribution is given in
+Table~\ref{tab:rates}.
+\begin{table}[htbp]
+\centering
+\caption{Canonical rates among the 9,112 input roots at least $2$.}
+\label{tab:rates}
+\begin{tabular}{rrrrrrrrr}
+\toprule
+$\lambda$&0&1&2&3&4&5&6&7\\
+\midrule
+Count&8982&28&29&17&3&27&23&3\\
+\bottomrule
+\end{tabular}
+\end{table}
+There are exactly 35 distinct observed core/rate pairs with
+$\lambda>0$, accounting for 130 terms. All their reduced cores
+are distinct. Table~\ref{tab:cores} records $S=\sqrt{C(m,\lambda)}$
+and the finite number $h$ of terms in the completed domain.
+Each row gives a universal infinite family by
+Corollary~\ref{cor:infinite}, not just its $h$ observed members.
+The four marked rows are the inherited families; the other 31 are
+additional certified specializations extracted during this finite
+analysis, without a bibliographic-first claim.
+
+For example, $m=9$, $\lambda=6$ gives $b=60$ and $D(mb)=D(540)=1188$,
+so
+\[
+ C(9,6)=2\cdot1188+25\cdot540=15876=126^{2}.
+\]
+Hence
+\[
+ \left(9\prod_{j=1}^{6}p_j^{p_j}\right)^{2}\in\mathcal A,
+ \qquad R=126\prod_{j=1}^{6}p_j^{p_j}
+\]
+for arbitrary primes, including repetitions and $p_j=3$.
+As another example, $m=1847$, $\lambda=1$ has $S=5584$;
+its $p=2$ member has root $7388$ and is exactly the newly ranked
+$a(36)$. The structural consequence is derived from the data and
+the theorem, while the member's rank comes from exhaustive coverage.
+
+\begin{longtable}{rrrr}
+\caption{All observed positive-rate reduced-core classes. Each row
+satisfies $C(m,\lambda)=S^{2}$. The count $h$ is restricted to
+$r\leq10^{10}$; a star marks one of the four inherited families.}
+\label{tab:cores}\\
+\toprule
+$m$&$\lambda$&$S$&$h$\\
+\midrule
+\endfirsthead
+\toprule
+$m$&$\lambda$&$S$&$h$\\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+9&6&126&12\\
+34&5&396&11\\
+$47^{*}$&1&148&4\\
+$125^{*}$&1&500&4\\
+$529^{*}$&2&2852&7\\
+847&3&7216&7\\
+$875^{*}$&1&3125&4\\
+1369&2&6586&6\\
+1847&1&5584&4\\
+2209&5&23171&6\\
+6103&6&76862&4\\
+6929&7&102544&3\\
+8750&5&111750&5\\
+28561&1&81289&3\\
+33746&6&445510&3\\
+41503&2&229075&5\\
+230911&6&3076116&2\\
+296009&6&3931172&2\\
+356377&3&2507085&4\\
+371293&5&4227028&2\\
+1067089&2&5059634&3\\
+1159171&5&13891280&2\\
+1830125&1&8984250&3\\
+2724449&3&19985875&3\\
+3457233&4&33665463&2\\
+5182723&1&18966532&2\\
+5185474&2&32708088&3\\
+7140250&3&63163750&2\\
+9020273&5&92443535&1\\
+9759362&2&57933234&3\\
+25574423&2&146048812&2\\
+35701250&4&430062750&1\\
+47316959&1&175360104&2\\
+62344607&1&252382104&2\\
+105971074&3&796214804&1\\
+\end{longtable}
+
+The table classifies the positive-rate classes represented in this
+finite dataset. It does not classify all seeds or rates. In particular,
+the absence of a core from the table does not rule out a family whose
+smallest member is outside the completed range. The large prime-root
+count and the rate histogram imply neither an asymptotic density nor
+an exhaustive list of constructions.
+
+\section{Relations and remaining questions}\label{sec:relations}
+The defining relation uses the square inputs of A000290, the derivative
+A003415 and its composition A068346 \cite{squares,derivative,second}. The paired tables
+A056798 and A192084 have a different meaning: at their common index
+$j$, the first gives an even prime power (including $1$) and the
+second gives its second derivative \cite{evenpower,powersecond}. Their acquired 10,000 aligned
+rows contain 72 square-valued second derivatives, with input table
+ending at $10708731289$. Those indices are provider indices; they are
+not positions in A348425. Moreover, prime-power tables cannot account
+for mixed roots.
+
+A266890 requires the first arithmetic derivative of a square to be
+square \cite{firstsquare}. Checking $D(n)$ in every consolidated row,
+using the coverage of Theorem~\ref{thm:computed}, gives
+the finite intersection
+\[
+ \mathcal A\cap\mathrm{A266890}\cap[0,10^{20}]=\{0,1,4\}.
+\]
+This does not assert a global intersection theorem. For example,
+$49\in\mathcal A$ but $D(49)=14$ is not square, whereas $256$ has
+$D(256)=1024$ square and $D^{2}(256)=5120$ not square.
+
+There are also two unconditional exclusions. For $r\geq2$,
+$D(r)\geq1$, and \eqref{eq:root} gives $D^{2}(r^{2})\geq r\geq2$.
+If such a value is square, it is at least $4$, hence neither prime
+nor squarefree. For $r=0,1$, the value is $0$, also neither prime
+nor squarefree. Thus A348425 is disjoint from A192192, whose second
+derivative is prime, and A328244, whose second derivative is squarefree
+\cite{prime2,sfree2}.
+
+The natural structural problem left by Theorem~\ref{thm:scale} is to
+describe reduced cores $m$ and rates $\lambda$ for which
+$C(m,\lambda)$ is square, beyond finite tables of certificates.
+The prime-power criterion supplies another restricted classification
+problem as $k$ varies. Neither problem is resolved by the observed
+counts, and no conjectural density model is used here. The computational
+question immediately after this work remains the first unresolved
+index 9115: establishing it requires arbitrary-root coverage beyond
+$10^{10}$, not merely testing another supplied positive witness.
+
+\section{Conclusion}
+The consolidated extension contains 9,114 consecutive terms through
+input root $10^{10}$, with last term $99948010099131627889$.
+The 33-term public snapshot, the two finite continuation stages,
+and the 8,917-term final campaign have distinct evidential roles.
+A later complete check closes the original public-prefix dependency;
+negative coverage of the final interval rests on the single exhaustive
+producer and its completion records.
+The next term satisfies \eqref{eq:bound}, while its exact value remains
+undetermined. The scale criterion turns canonical integer-rate
+decomposition into provable infinite families, including 35 disjoint
+classes represented in the data. It explains a structured part of the
+mixed-root behavior without converting a finite census into a global
+classification.
+
+\section*{Data availability}
+The indexed terms, documentary witness table, normalized C source and
+build instructions, original execution materials, provenance checks,
+and Python validators currently exist in a local preparation. The
+manuscript and finite-analysis companion are separate local review
+materials. No public release of this project is established at the
+date of this draft. These materials can be supplied privately for
+review; their intended repository and archive are identified in
+\cite{project}. Those locators are prospective, and the archive DOI
+is an intentional placeholder pending the author's verified publication
+locator. Original source reviews remain internal materials. Complete
+independent re-enumeration of the final search interval is not supplied.
+
+\section*{AI use disclosure}
+Large language models were used as research and drafting assistants during
+the A348425 workflow, including OpenAI Codex and external LLM-based
+review systems from the ChatGPT, Claude, DeepSeek, Gemini, Grok, Qwen,
+MiniMax, Meta AI, GLM and Mistral families. These are the product or family
+names present in the project records; exact model-version metadata were
+not consistently available or authenticated. The retained history spans
+October 5--23, 2026; the first manuscript review was integrated on
+October 23. These channels are not claimed to be independent providers.
+\paragraph{Mathematical analysis.}
+OpenAI Codex assisted with literature research, product-rule derivations,
+canonical-core analysis, and the distinction between indexed terms and
+unindexed witnesses. The four inherited families were already present
+in project notes before the final campaign. The manuscript's additional
+class certificates and tightened bound were checked by exact arithmetic
+on retained data and primary sources, not by accepting conversational
+assertions as evidence.
+\paragraph{Algorithm and code.}
+OpenAI Codex assisted with drafting the C implementation, validation
+planning, and integration of supplied code critiques. Claude-supplied
+Python and C implementations were locally rerun for the finite
+continuation and bounded revision checks, respectively; they do not
+constitute independent full-campaign reproduction. Such assistance and code review are fallible and do not
+replace the proofs, executable checks, or the stated coverage boundaries.
+The author ran the official campaign. No personal verification of
+every proof or manual recalculation of every output row is asserted.
+\paragraph{Manuscript.}
+OpenAI Codex assisted with drafting, source reconciliation, and internal
+checking of this text. The executable validators, result tables,
+original run records and primary sources form the verification basis.
+Carlo Corti retains full scientific responsibility for the mathematical
+statements, implementation, numerical results, validation boundaries,
+and conclusions.
+
+\appendix
+\section{Build and completion-record specification}\label{app:records}
+The executed Makefile uses \texttt{gcc}, with \texttt{-O3 -std=c17},
+\texttt{-Wall}, \texttt{-Wextra}, \texttt{-Wpedantic},
+\texttt{-Wshadow}, \texttt{-Wconversion},
+\texttt{-Wdouble-promotion}, \texttt{-Wformat=2}, \texttt{-Werror},
+and \texttt{-fopenmp}; linking uses
+\texttt{-fopenmp -lcrypto -lm}. Two preprocessor string definitions bind the source and Makefile identities:
+\[\texttt{A348425\_SOURCE\_SHA},\qquad \texttt{A348425\_MAKE\_SHA}.\] The original build file, rather than a
+reconstruction of its shell quoting, is retained with the execution materials.
+
+The configuration starts with \texttt{A348425-CFG-1} and records
+\texttt{start}, \texttt{end}, \texttt{block}, \texttt{group},
+\texttt{threads}, and the source, Makefile and executable bindings.
+The executed values are $1000001$, $10^{10}$, $65536$, $2$ and $16$;
+\texttt{group} is the number $S$ of segments. More precisely, let
+$u,v$ be the configured inclusive root endpoints and $\ell$ the block size.
+There are $K=\lfloor(v-u)/\ell\rfloor+1$ blocks. Define
+\[
+ q_j=j+\left\lfloor\frac{(K-S)j(6S+1-j)}{S(5S+1)}\right\rfloor,
+ \qquad 0\leq j\leq S.
+\]
+Segment $j$, numbered from $0$, covers
+$[u+q_j\ell,\,\min(v,u+q_{j+1}\ell-1)]$ for $0\leq j<S$.
+This reproduces the boundaries in Table~\ref{tab:segments}; $q_0=0$
+and $q_S=K$, and the reserved block in each positive increment
+$q_{j+1}-q_j$ ensures nonempty contiguous segments.
+
+A segment starts with \texttt{A348425-SEG-1}, followed by configuration
+binding, segment identifier, inclusive \texttt{low} and \texttt{high},
+\texttt{next}, internal \texttt{elapsed\_ns}, and \texttt{hits}.
+Its positive records have five tab-separated unsigned decimal columns
+$(r,r^{2},D(r^{2}),D^{2}(r^{2}),R)$ in strictly increasing $r$.
+The trailing \texttt{state\_sha} binds every preceding byte of that segment;
+a separate seal binds the full segment, including this trailing line.
+Segment filenames are \texttt{sNNNN.tsv}, with four lowercase
+hexadecimal digits for the segment identifier; the matching external seal
+file contains 64 lowercase hexadecimal digits followed
+by LF. The manifest \texttt{index.tsv} begins with
+\texttt{A348425-MANIFEST-1}, a TAB, and \texttt{cfg\_sha=} followed by
+the configuration digest. Its second line has the TAB-separated labels
+\texttt{id}, \texttt{low}, \texttt{high}, \texttt{state\_sha},
+\texttt{elapsed\_ns}, \texttt{hits}, in that order.
+The manifest column labelled \texttt{state\_sha} stores the digest of
+the \emph{entire} segment file, equal to its external seal; it is distinct
+from the in-segment field of the same name, which covers only the preceding
+segment bytes. Thus the ordered manifest binds the configuration and the
+full segment files, including their trailing digest lines.
+
+The aggregate \texttt{hits.tsv} begins with \texttt{A348425-HITS-1},
+a TAB, and \texttt{cfg\_sha=} followed by the configuration digest.
+Its second line has the TAB-separated column labels \texttt{r},
+\texttt{n}, \texttt{x}, \texttt{y}, \texttt{R}, corresponding to the
+five coordinates above. Every record line ends in LF.
+A completed segment must have $\texttt{next}=\texttt{high}+1$; the next
+segment starts at that cursor. The aggregate hit list is regenerated
+from the segments and checked for equality, rather than admitted as a
+separate authority. These conditions expose missing, reordered or
+inconsistent records. They establish integrity and recorded completion;
+the exhaustive algorithm remains the basis for negative coverage.
+
+The two saved internal elapsed counters correspond to approximately
+1539 and 1387 seconds, respectively; their full precision is retained
+in the execution records.
+Their sum has the timing limitations stated in Section~\ref{sec:provenance}.
+The finite-analysis companion requires SymPy 1.12, deliberately rejecting
+other versions to preserve its tested environment. It can be run from an
+isolated Python environment with that version installed; it checks positive
+rows and class certificates, not exhaustive negative coverage.
+
+\clearpage
+\begin{thebibliography}{99}
+\sloppy\raggedright
+\bibitem{barbeau}
+E. J. Barbeau, Remarks on an arithmetic derivative,
+\textit{Canadian Mathematical Bulletin} \textbf{4}(2) (1961), 117--122.
+\url{https://doi.org/10.4153/CMB-1961-013-0}.
+
+\bibitem{ufn}
+V. Ufnarovski and B. \AA hlander, How to differentiate a number,
+\textit{Journal of Integer Sequences} \textbf{6} (2003), Article 03.3.4.
+\url{https://cs.uwaterloo.ca/journals/JIS/VOL6/Ufnarovski/ufnarovski.html}.
+
+\bibitem{kovic}
+J. Kovi\v{c}, The arithmetic derivative and antiderivative,
+\textit{Journal of Integer Sequences} \textbf{15} (2012), Article 12.3.8.
+\url{https://cs.uwaterloo.ca/journals/JIS/VOL15/Kovic/kovic4.html}.
+
+\bibitem{survey}
+T. Tossavainen, P. Haukkanen, J. K. Merikoski, and M. Mattila,
+We can differentiate numbers, too,
+\textit{The College Mathematics Journal} \textbf{55}(2) (2024), 100--108;
+published online November 3, 2023. DOI: 10.1080/07468342.2023.2268494.
+
+
+\bibitem{book}
+G. Balzarotti and P. P. Lava, \textit{La derivata aritmetica:
+Alla scoperta di un nuovo approccio alla teoria dei numeri},
+Hoepli, Milan, 2013. ISBN 9788820358648.
+
+\bibitem{oeis}
+M. A. Burtea, A348425: Squares whose second arithmetic derivative is a
+square, \textit{The On-Line Encyclopedia of Integer Sequences},
+October 18, 2021; revision 21, September 8, 2022;
+snapshot acquired and rechecked October 22, 2026.
+Programs by A. Eldar (October 18, 2021) and M. Marcus (October 30, 2021).
+\url{https://oeis.org/A348425}.
+
+\bibitem{squares}
+N. J. A. Sloane, A000290: The squares: a(n) = n squared,
+\textit{The On-Line Encyclopedia of Integer Sequences}.
+Snapshot and linked data acquired October 22, 2026.
+\url{https://oeis.org/A000290}.
+
+\bibitem{derivative}
+N. J. A. Sloane and R. K. Guy, A003415: Arithmetic derivative,
+\textit{The On-Line Encyclopedia of Integer Sequences}.
+Snapshot and linked data acquired October 22, 2026.
+\url{https://oeis.org/A003415}.
+
+\bibitem{second}
+R. Zumkeller, A068346: Second arithmetic derivative,
+\textit{The On-Line Encyclopedia of Integer Sequences}.
+February 28, 2002; table by A. P. Heinz, with initial terms from T. D. Noe.
+Snapshot and linked data acquired October 22, 2026.
+\url{https://oeis.org/A068346}.
+
+\bibitem{near2}
+P. De Geest, A028871: Primes of the form k squared minus 2,
+\textit{The On-Line Encyclopedia of Integer Sequences}.
+table by N. Johnston.
+Snapshot and linked data acquired October 22, 2026.
+\url{https://oeis.org/A028871}.
+
+\bibitem{near3}
+P. De Geest, A028873: Numbers k such that k squared minus 3 is prime,
+\textit{The On-Line Encyclopedia of Integer Sequences}.
+table by N. Johnston.
+Snapshot and linked data acquired October 22, 2026.
+\url{https://oeis.org/A028873}.
+
+\bibitem{near5}
+V. Librandi, A201787: Primes of the form 5n squared minus 6,
+\textit{The On-Line Encyclopedia of Integer Sequences}.
+December 5, 2011; table by V. Librandi.
+Snapshot and linked data acquired October 22, 2026.
+\url{https://oeis.org/A201787}.
+
+\bibitem{evenpower}
+Labos Elemer, A056798: Prime powers with even nonnegative exponents,
+\textit{The On-Line Encyclopedia of Integer Sequences}.
+August 28, 2000; table by T. D. Noe.
+Snapshot and linked data acquired October 22, 2026.
+\url{https://oeis.org/A056798}.
+
+\bibitem{powersecond}
+R. Zumkeller, A192084: Second arithmetic derivative of squares of prime powers,
+\textit{The On-Line Encyclopedia of Integer Sequences}.
+June 26, 2011; table by R. Zumkeller.
+Snapshot and linked data acquired October 22, 2026.
+\url{https://oeis.org/A192084}.
+
+\bibitem{firstsquare}
+P. P. Lava, A266890: Squares whose arithmetic derivative is a square,
+\textit{The On-Line Encyclopedia of Integer Sequences}.
+April 8, 2016; extension and infinitude comment by G. Resta, May 28, 2016.
+Snapshot and linked data acquired October 22, 2026.
+\url{https://oeis.org/A266890}.
+
+\bibitem{prime2}
+V. Shevelev, A192192: Numbers whose second arithmetic derivative is prime,
+\textit{The On-Line Encyclopedia of Integer Sequences}.
+June 25, 2011; extension by O. G\'erard, July 4, 2011; revised definition by A. Karttunen, October 19, 2019; table by A. Karttunen with initial terms from T. D. Noe.
+Snapshot and linked data acquired October 22, 2026.
+\url{https://oeis.org/A192192}.
+
+\bibitem{sfree2}
+A. Karttunen, A328244: Numbers whose second arithmetic derivative is squarefree,
+\textit{The On-Line Encyclopedia of Integer Sequences}.
+October 11, 2019.
+Snapshot and linked data acquired October 22, 2026.
+\url{https://oeis.org/A328244}.
+
+\bibitem{pollard}
+J. M. Pollard, A Monte Carlo method for factorization,
+\textit{BIT} \textbf{15}(3) (1975), 331--334.
+\url{https://doi.org/10.1007/BF01933667}.
+
+\bibitem{miller}
+G. L. Miller, Riemann's hypothesis and tests for primality,
+\textit{Journal of Computer and System Sciences} \textbf{13}(3)
+(1976), 300--317.
+\url{https://www.cs.cmu.edu/~glmiller/Publications/b2hd-Mi76.html}.
+
+\bibitem{rabin}
+M. O. Rabin, Probabilistic algorithm for testing primality,
+\textit{Journal of Number Theory} \textbf{12}(1) (1980), 128--138.
+\url{https://www.sciencedirect.com/science/article/pii/0022314X80900840}.
+
+\bibitem{feitsma}
+J. Feitsma, with W. Galway (editor), \textit{Tables of pseudoprimes
+and related data}, all base-2 Fermat pseudoprimes below $2^{64}$,
+last modified April 25, 2013; accessed October 23, 2026.
+\url{https://www.cecm.sfu.ca/Pseudoprimes/}.
+
+\bibitem{mr}
+W. Izykowski, \textit{Deterministic variants of the Miller--Rabin
+primality test}, record of the seven-base set of J. Sinclair (2011),
+accessed October 22, 2026.
+\url{https://miller-rabin.appspot.com/}.
+
+\bibitem{sympy}
+SymPy development team, \textit{SymPy}, version 1.12 (2023),
+source release; factorization and primality routines used by the Python
+validators. \url{https://github.com/sympy/sympy/releases/tag/sympy-1.12}.
+
+\bibitem{project}
+C. Corti, \textit{Squares with Square Second Arithmetic Derivative:
+Infinite Families and an Exact Extension of OEIS A348425},
+GitHub repository and Zenodo archive, 2026.
+Prospective project locators; no public release is asserted in this draft:
+\url{https://github.com/carcorti/A348425};
+\url{https://doi.org/10.5281/zenodo.xxxxxxxx}.
+\end{thebibliography}
+\end{document}

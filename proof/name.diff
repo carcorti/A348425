@@ -1,0 +1,35 @@
+--- historical/a348425_v2.c
++++ public/a348425.c
+@@ -385,7 +385,7 @@
+     if (!slash) die("executable directory");
+     hash_file(exe,bin);
+     *slash=0;
+-    path2(path,exe,"a348425_v2.c"); hash_file(path,src);
++    path2(path,exe,"a348425.c"); hash_file(path,src);
+     path2(path,exe,"Makefile"); hash_file(path,make);
+     if (strcmp(src,A348425_SOURCE_SHA) || strcmp(make,A348425_MAKE_SHA))
+         die("binary is not bound to neighboring source and Makefile");
+
+--- historical/Makefile
++++ public/Makefile
+@@ -3,15 +3,14 @@
+ CPPFLAGS ?=
+ LDFLAGS ?= -fopenmp
+ LDLIBS ?= -lcrypto -lm
+-SOURCE_SHA := $(shell sha256sum a348425_v2.c | cut -d' ' -f1)
++SOURCE_SHA := $(shell sha256sum a348425.c | cut -d' ' -f1)
+ MAKE_SHA := $(shell sha256sum Makefile | cut -d' ' -f1)
+ BIND = -DA348425_SOURCE_SHA='"$(SOURCE_SHA)"' -DA348425_MAKE_SHA='"$(MAKE_SHA)"'
+ .PHONY: all check clean
+ all: a348425
+-a348425: a348425_v2.c Makefile
+-	$(CC) $(CPPFLAGS) $(BIND) $(CFLAGS) -o $@ a348425_v2.c $(LDFLAGS) $(LDLIBS)
+-check: a348425
+-	python3 -B ../checks/verify.py
+-	python3 -B ../checks/recover.py
++a348425: a348425.c Makefile
++	$(CC) $(CPPFLAGS) $(BIND) $(CFLAGS) -o $@ a348425.c $(LDFLAGS) $(LDLIBS)
++check:
++	python3 -I -B ../check/a348425_package.py
+ clean:
+ 	rm -f a348425

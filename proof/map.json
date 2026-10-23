@@ -1,0 +1,388 @@
+{
+  "author": "Carlo Corti",
+  "role": "Exact historical campaign identity and positive/state verifier; restore into disposable storage",
+  "members": [
+    {
+      "path": "src/a348425_v2.c",
+      "sha256": "70842cf79119b67158bccd2d64bf8393bbf545abe69213965430772c1798f2e8",
+      "bytes": 49931
+    },
+    {
+      "path": "src/Makefile",
+      "sha256": "e55af7616c6209c4e34752f4315169393af7ecaafcf1c1c3818361eb196fdd9e",
+      "bytes": 626
+    },
+    {
+      "path": "src/a348425",
+      "sha256": "b616ba419821eff7516fbacdd61b90330b398c2f866d25829c681c13ceb4a58e",
+      "bytes": 66224
+    },
+    {
+      "path": "checks/verify.py",
+      "sha256": "0ff2b40b4d7501ae4acc99f0b4325e0910e4cd14cb1ae1f0f06364f2fbf800ec",
+      "bytes": 12427
+    },
+    {
+      "path": "runs/c01/hits.tsv",
+      "sha256": "f4b116fa3c7bf79d2e9523cb51d034d60d1dbe6fa8f563aa85d6f979f2f8c55d",
+      "bytes": 515644
+    },
+    {
+      "path": "runs/c01/index.tsv",
+      "sha256": "112e60c308ba035ee8fc947d3c01d44554dbb7497774c776925d049925d3442a",
+      "bytes": 350
+    },
+    {
+      "path": "runs/c01/run.cfg",
+      "sha256": "e785485b95f01579ed625a9666fda82fef717bcadb409987c6141f56688d1e20",
+      "bytes": 305
+    },
+    {
+      "path": "runs/c01/s0000.sha256",
+      "sha256": "705ccf32a81023e3b8411dcf983ad4e7f44f604c28ced6e43d3cf3d42bc86c3d",
+      "bytes": 65
+    },
+    {
+      "path": "runs/c01/s0000.tsv",
+      "sha256": "5628134749be8c62a7039189a287b0bcb8cecd08b9cc0ead91555e487cce9be8",
+      "bytes": 385426
+    },
+    {
+      "path": "runs/c01/s0001.sha256",
+      "sha256": "2309df73e9339bcbdf5a0f81cd7ae66e90abae7ae4b176bcbde0d17ba52e9ea8",
+      "bytes": 65
+    },
+    {
+      "path": "runs/c01/s0001.tsv",
+      "sha256": "73db3bba88a8b3bada22d5876e0bf56c9c422517d6b869a5d3b1a3edf5fc268a",
+      "bytes": 130623
+    },
+    {
+      "path": "data/b348425.txt",
+      "sha256": "a8a969b025d9dc332fe046d36e4d855b9ceb5492de73341f47b6f1f40b2c6785",
+      "bytes": 2849
+    }
+  ],
+  "baseline_canonical_rows": 197,
+  "source_sha": "70842cf79119b67158bccd2d64bf8393bbf545abe69213965430772c1798f2e8",
+  "makefile_sha": "e55af7616c6209c4e34752f4315169393af7ecaafcf1c1c3818361eb196fdd9e",
+  "binary_sha": "b616ba419821eff7516fbacdd61b90330b398c2f866d25829c681c13ceb4a58e",
+  "support_archive": "extra.tgz",
+  "support_members": [
+    {
+      "path": "tail/hits.tsv",
+      "origin": "outputs/rev1/tail.tgz!hits.tsv",
+      "role": "Original completed finite producer records for6501..1000000",
+      "bytes": 6363,
+      "sha256": "0382891ef326fa05ade1abb6cb5498752034fd4f99175f99509b5c80f1a10f77",
+      "mode": 420,
+      "license": "project software/data; see NOTICE.md"
+    },
+    {
+      "path": "tail/index.tsv",
+      "origin": "outputs/rev1/tail.tgz!index.tsv",
+      "role": "Original completed finite producer records for6501..1000000",
+      "bytes": 513,
+      "sha256": "660b327f2967878a3b4a2311b3efb5839a3585b764ab7abb86d83787974bb75c",
+      "mode": 420,
+      "license": "project software/data; see NOTICE.md"
+    },
+    {
+      "path": "tail/run.cfg",
+      "origin": "outputs/rev1/tail.tgz!run.cfg",
+      "role": "Original completed finite producer records for6501..1000000",
+      "bytes": 298,
+      "sha256": "e58a35b88e54378a87d046940b8f45d12d94c60015e58cfe2c7e3478bc52433f",
+      "mode": 420,
+      "license": "project software/data; see NOTICE.md"
+    },
+    {
+      "path": "tail/s0000.sha256",
+      "origin": "outputs/rev1/tail.tgz!s0000.sha256",
+      "role": "Original completed finite producer records for6501..1000000",
+      "bytes": 65,
+      "sha256": "e6e62b288a81d4a7dab21731127a134d31a4ced145188f9a23e42a0682066fca",
+      "mode": 420,
+      "license": "project software/data; see NOTICE.md"
+    },
+    {
+      "path": "tail/s0000.tsv",
+      "origin": "outputs/rev1/tail.tgz!s0000.tsv",
+      "role": "Original completed finite producer records for6501..1000000",
+      "bytes": 3861,
+      "sha256": "a1d3fa918732e9aac75c2946909951a433658bb89511729a1537a91d5437ce21",
+      "mode": 420,
+      "license": "project software/data; see NOTICE.md"
+    },
+    {
+      "path": "tail/s0001.sha256",
+      "origin": "outputs/rev1/tail.tgz!s0001.sha256",
+      "role": "Original completed finite producer records for6501..1000000",
+      "bytes": 65,
+      "sha256": "d4aed830d58850252f54d3b5742b8fdacce154526db4802bd7e6f170ac81c5b4",
+      "mode": 420,
+      "license": "project software/data; see NOTICE.md"
+    },
+    {
+      "path": "tail/s0001.tsv",
+      "origin": "outputs/rev1/tail.tgz!s0001.tsv",
+      "role": "Original completed finite producer records for6501..1000000",
+      "bytes": 1436,
+      "sha256": "e7c848eba25dae314869bbe8b1fbb534444ec06924f3b0868d5dae154064cd25",
+      "mode": 420,
+      "license": "project software/data; see NOTICE.md"
+    },
+    {
+      "path": "tail/s0002.sha256",
+      "origin": "outputs/rev1/tail.tgz!s0002.sha256",
+      "role": "Original completed finite producer records for6501..1000000",
+      "bytes": 65,
+      "sha256": "980bf00a7f56821ac4377403f6c7825038291f2b85b4fc58a2c0bf3e7d4b83c4",
+      "mode": 420,
+      "license": "project software/data; see NOTICE.md"
+    },
+    {
+      "path": "tail/s0002.tsv",
+      "origin": "outputs/rev1/tail.tgz!s0002.tsv",
+      "role": "Original completed finite producer records for6501..1000000",
+      "bytes": 1140,
+      "sha256": "cc2c7f1ea70abd535266d4c4d507ee0f8fdc4043b159845771891c8889819512",
+      "mode": 420,
+      "license": "project software/data; see NOTICE.md"
+    },
+    {
+      "path": "tail/s0003.sha256",
+      "origin": "outputs/rev1/tail.tgz!s0003.sha256",
+      "role": "Original completed finite producer records for6501..1000000",
+      "bytes": 65,
+      "sha256": "f0c8e7868e05279ac9e3a5e0ed50345663154af4cb711ed5ba58704ce9927ec0",
+      "mode": 420,
+      "license": "project software/data; see NOTICE.md"
+    },
+    {
+      "path": "tail/s0003.tsv",
+      "origin": "outputs/rev1/tail.tgz!s0003.tsv",
+      "role": "Original completed finite producer records for6501..1000000",
+      "bytes": 760,
+      "sha256": "a7ef03fcf427d7bfc74d205a52c4a9b19a891cb03ac14d30c136cc3ceabba72e",
+      "mode": 420,
+      "license": "project software/data; see NOTICE.md"
+    },
+    {
+      "path": "census.gz",
+      "origin": "outputs/rev1/census.gz",
+      "role": "Original independent finite-census receipt including162 hit rows",
+      "bytes": 4157,
+      "sha256": "ab774cd3295d46952b4fd4f56984122c60c4c6f91ea5519d857f1a37733b5540",
+      "mode": 420,
+      "license": "project software/data; see NOTICE.md"
+    },
+    {
+      "path": "public.txt",
+      "origin": "sources/b348425.txt",
+      "role": "Original33-row public comparison prefix",
+      "bytes": 366,
+      "sha256": "25dcefd888ffefb0c5246c2777e781fd6caccf414f64d92b44e7880a23ae3591",
+      "mode": 420,
+      "license": "OEIS CC-BY-SA-4.0"
+    },
+    {
+      "path": "more/b028871.gz",
+      "origin": "sources/b028871.gz",
+      "role": "Exact acquired provider table for restricted-domain replay",
+      "bytes": 68804,
+      "sha256": "4f00d01d6f6c882eca82d6f2fd1a03dbb12bbba8e887097427dcaa68c737a69a",
+      "mode": 420,
+      "license": "OEIS CC-BY-SA-4.0"
+    },
+    {
+      "path": "more/b028873.gz",
+      "origin": "sources/b028873.gz",
+      "role": "Exact acquired provider table for restricted-domain replay",
+      "bytes": 46705,
+      "sha256": "09c6122f6f9e81168bcc921b99e62b06e12bb9b7f08a30fc7ee7ee20d418198d",
+      "mode": 420,
+      "license": "OEIS CC-BY-SA-4.0"
+    },
+    {
+      "path": "more/b201787.gz",
+      "origin": "sources/b201787.gz",
+      "role": "Exact acquired provider table for restricted-domain replay",
+      "bytes": 35466,
+      "sha256": "0375fc21cd6e2fe341dfe6ec8cfe441bc10eacdc40cd21bd48b1dd6a48b3252b",
+      "mode": 420,
+      "license": "OEIS CC-BY-SA-4.0"
+    },
+    {
+      "path": "more/b056798.gz",
+      "origin": "sources/b056798.gz",
+      "role": "Exact acquired provider table for restricted-domain replay",
+      "bytes": 68542,
+      "sha256": "0b51ca998620f9fb9516ce16aae374b312666e61cec07563ff2fad88b6fc2542",
+      "mode": 420,
+      "license": "OEIS CC-BY-SA-4.0"
+    },
+    {
+      "path": "more/b192084.gz",
+      "origin": "sources/b192084.gz",
+      "role": "Exact acquired provider table for restricted-domain replay",
+      "bytes": 45489,
+      "sha256": "a67d6fc2a0013ad2a4951fee2f2ec69a722de9cc169df5ca4c7fed01a75a0753",
+      "mode": 420,
+      "license": "OEIS CC-BY-SA-4.0"
+    },
+    {
+      "path": "entry/A348425.txt",
+      "origin": "sources/A348425.txt",
+      "role": "Frozen October22 entry text and attribution/definition evidence",
+      "bytes": 1919,
+      "sha256": "7522c364a857afcb69247ad1b38d3f7b8825e3385e820541566239d7ffa7c8f1",
+      "mode": 420,
+      "license": "OEIS CC-BY-SA-4.0"
+    },
+    {
+      "path": "entry/A000290.txt",
+      "origin": "sources/A000290.txt",
+      "role": "Frozen October22 entry text and attribution/definition evidence",
+      "bytes": 29190,
+      "sha256": "14c6ce6edc4787e43f907b26bf81456a14b6ee2fb11a255ce34f0940adc3b868",
+      "mode": 420,
+      "license": "OEIS CC-BY-SA-4.0"
+    },
+    {
+      "path": "entry/A003415.txt",
+      "origin": "sources/A003415.txt",
+      "role": "Frozen October22 entry text and attribution/definition evidence",
+      "bytes": 19410,
+      "sha256": "24b7a90791be696a43b4bd4affa11fede19557f193a18d52ef38dfe489e3d462",
+      "mode": 420,
+      "license": "OEIS CC-BY-SA-4.0"
+    },
+    {
+      "path": "entry/A068346.txt",
+      "origin": "sources/A068346.txt",
+      "role": "Frozen October22 entry text and attribution/definition evidence",
+      "bytes": 2030,
+      "sha256": "d380a365db7e3491efccd2abee2282844122d0ea3b01e253ecf4d6d85577110d",
+      "mode": 420,
+      "license": "OEIS CC-BY-SA-4.0"
+    },
+    {
+      "path": "entry/A028871.txt",
+      "origin": "sources/A028871.txt",
+      "role": "Frozen October22 entry text and attribution/definition evidence",
+      "bytes": 2695,
+      "sha256": "f3e967d59c8321374ec5dd6c702346a87038aded8d548041eec0200582eb6dbd",
+      "mode": 420,
+      "license": "OEIS CC-BY-SA-4.0"
+    },
+    {
+      "path": "entry/A028873.txt",
+      "origin": "sources/A028873.txt",
+      "role": "Frozen October22 entry text and attribution/definition evidence",
+      "bytes": 1383,
+      "sha256": "9f40ac78e177322c59a77d437d577e689c7f4579378e8713dd377db82dfde6dd",
+      "mode": 420,
+      "license": "OEIS CC-BY-SA-4.0"
+    },
+    {
+      "path": "entry/A201787.txt",
+      "origin": "sources/A201787.txt",
+      "role": "Frozen October22 entry text and attribution/definition evidence",
+      "bytes": 822,
+      "sha256": "995516f50237a741310fdfb2e6ee601bb8975c55b904f9960c68c38d0553cd2d",
+      "mode": 420,
+      "license": "OEIS CC-BY-SA-4.0"
+    },
+    {
+      "path": "entry/A056798.txt",
+      "origin": "sources/A056798.txt",
+      "role": "Frozen October22 entry text and attribution/definition evidence",
+      "bytes": 2207,
+      "sha256": "7c540358610399604209d78b2be1bcc2263335b95a4807febdee126e3af74d98",
+      "mode": 420,
+      "license": "OEIS CC-BY-SA-4.0"
+    },
+    {
+      "path": "entry/A192084.txt",
+      "origin": "sources/A192084.txt",
+      "role": "Frozen October22 entry text and attribution/definition evidence",
+      "bytes": 791,
+      "sha256": "164bd233b424ec7328244c62ec71cff75205153e5bf246d9c21d6c22b7dae7c7",
+      "mode": 420,
+      "license": "OEIS CC-BY-SA-4.0"
+    },
+    {
+      "path": "entry/A266890.txt",
+      "origin": "sources/A266890.txt",
+      "role": "Frozen October22 entry text and attribution/definition evidence",
+      "bytes": 1552,
+      "sha256": "7f6b6adea57de8db62291cf50aecb4908c66aab3b9b67a9d545a24dc5ce44b4f",
+      "mode": 420,
+      "license": "OEIS CC-BY-SA-4.0"
+    },
+    {
+      "path": "entry/A192192.txt",
+      "origin": "sources/A192192.txt",
+      "role": "Frozen October22 entry text and attribution/definition evidence",
+      "bytes": 1756,
+      "sha256": "d2aaf081dce2fe037678c69562d423278a6546db1ee85c4e1b608fe63cad23b6",
+      "mode": 420,
+      "license": "OEIS CC-BY-SA-4.0"
+    },
+    {
+      "path": "entry/A328244.txt",
+      "origin": "sources/A328244.txt",
+      "role": "Frozen October22 entry text and attribution/definition evidence",
+      "bytes": 2008,
+      "sha256": "ad877e7963feebbc2c570237138631ebf72dd120d526944dda2f9261a653ce47",
+      "mode": 420,
+      "license": "OEIS CC-BY-SA-4.0"
+    }
+  ],
+  "support_bytes": {
+    "compressed": 291108,
+    "tar": 378880,
+    "member_payload": 349923
+  },
+  "public_role": "Original run identity plus exact supplemental finite/provider inputs. Public source remains a distinct normalized producer.",
+  "public_scope": "Local publication draft; no new campaign or public release asserted.",
+  "publication_copies": [
+    {
+      "path": "paper/A348425_v3.tex",
+      "origin": "paper/A348425_v3.tex",
+      "sha256": "79e61d21edf08e7bba251466dc8dfd3c97be9020b7508dc3b4e925f803f8e41f",
+      "transformation": "byte-identical copy; package-relative invocation documented"
+    },
+    {
+      "path": "paper/analysis.py",
+      "origin": "paper/analysis.py",
+      "sha256": "0d4ec816074bce14f07e78cd20ae6ee38fb0cb376a532eea8d4008ce8ed4551e",
+      "transformation": "byte-identical copy; package-relative invocation documented"
+    },
+    {
+      "path": "check/baseline.py",
+      "origin": "paper/baseline.py",
+      "sha256": "ed3b84716b0a09482e76771ba47942e57fbc2d559651ea40945c3516794d6089",
+      "transformation": "byte-identical copy; package-relative invocation documented"
+    },
+    {
+      "path": "check/indep.c",
+      "origin": "paper_review/r01/01_Claude_indep_review.c",
+      "sha256": "1291f189df023e8084d0b1ba964f8efce739736c81d9e0fe28cfca260d306bae",
+      "transformation": "byte-identical copy; package-relative invocation documented"
+    },
+    {
+      "path": "check/finite.py",
+      "origin": "src_review/r01/01_Claude_indep.py",
+      "sha256": "70dee69ec25f179850f03860e75b789d9fe8b642dfbda5bec64b42335769a792",
+      "transformation": "byte-identical copy; package-relative invocation documented"
+    },
+    {
+      "path": "check/recheck.py",
+      "origin": "paper_review/r02/02_Claude_receipts.zip!recheck.py",
+      "sha256": "31e21fe651f0a8811249aedaacb17bf30cebec188deb416f897afed3b6f691f0",
+      "transformation": "byte-identical copy; package-relative invocation documented"
+    }
+  ]
+}
